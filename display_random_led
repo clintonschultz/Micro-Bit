@@ -1,0 +1,23 @@
+#include "MicroBit.h"
+
+MicroBit uBit;
+MicroBitDisplay display;
+
+int main()
+{
+    // Initialize the micro:bit runtime.
+    uBit.init();
+    
+    for (int i = 0; i < 10; i++) {
+        // Get letter A-E
+        int addVal = uBit.random(5);
+        int asciiVal = 65 + addVal;
+        char asciiChar = asciiVal;
+        display.scroll(asciiChar);
+        // Get number to be concatenated to letter (example - A5)
+        int randNum = uBit.random(4);
+        display.clear();
+        }
+
+    release_fiber();
+}
